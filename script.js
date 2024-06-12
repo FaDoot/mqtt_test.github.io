@@ -53,13 +53,13 @@ document.addEventListener('DOMContentLoaded', (event) => {
         const beUrl = document.getElementById('be_url').value;
         const message = JSON.stringify({ launch: true, n_robots: parseInt(nRobots), be_url: beUrl });
         if (nRobots === "" || beUrl === "") {
-            alert(`Enter Robot and Backend URL params`);
+            // alert(`Enter Robot and Backend URL params`);
         } else {
             const mqttMessage = new Paho.MQTT.Message(message);
             mqttMessage.destinationName = topic;
             client.send(mqttMessage);
             console.log("Published: " + message);
-            alert(`Launch button clicked!\nParameters sent:\nNumber of Robots: ${nRobots}\nBackend URL: ${beUrl}`);
+            // alert(`Launch button clicked!\nParameters sent:\nNumber of Robots: ${nRobots}\nBackend URL: ${beUrl}`);
         }
     });
 
