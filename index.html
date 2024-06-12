@@ -3,14 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="style.css">
     <title>MQTT Test Website</title>
-    <!-- Include the Paho MQTT library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.js" type="text/javascript"></script>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
     <h1>MQTT Test Site</h1>
-  
     <form id="controlForm">
         <label for="n_robots">Number Of Robots:</label><br>
         <input type="text" id="n_robots" name="n_robots"><br>
@@ -19,8 +18,9 @@
         <input type="button" id="launch" value="Launch">
         <input type="button" id="terminate" value="Terminate">
     </form>
-
-    <!-- Include your custom script -->
-    <script src="script.js"></script>
+    <div>
+        <h2>Messages Received</h2>
+        <ul id="messages"></ul>
+    </div>
 </body>
 </html>

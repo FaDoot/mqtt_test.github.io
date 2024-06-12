@@ -1,9 +1,12 @@
 document.addEventListener('DOMContentLoaded', (event) => {
     const launchButton = document.getElementById('launch');
     const terminateButton = document.getElementById('terminate');
+    const messagesList = document.getElementById('messages');
     const brokerUrl = "wss://broker.hivemq.com:8884/mqtt"; // Public MQTT broker's Secure WebSocket URL
     const topic = "ros/launch_command"; // Define the MQTT topic
     const clientId = "MQTT_Subscriber_Node"; // Optional: Provide a unique client ID
+
+    console.log("Using broker URL: " + brokerUrl);
 
     const client = new Paho.MQTT.Client(brokerUrl, clientId);
 
@@ -16,10 +19,14 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
     client.onMessageArrived = function (message) {
         console.log("onMessageArrived:" + message.payloadString);
+        const listItem = document.createElement('li');
+        listItem.textContent = message.payloadString;
+        messagesList.appendChild(listItem);
     };
 
     client.connect({
         onSuccess: onConnect,
+        onFailure: onFailure,
         useSSL: true // Use SSL/TLS
     });
 
@@ -29,10 +36,15 @@ document.addEventListener('DOMContentLoaded', (event) => {
         client.subscribe(topic);
     }
 
+    function onFailure(responseObject) {
+        console.log("Connection failed: " + responseObject.errorMessage);
+    }
+
     function reconnect() {
         console.log("Attempting to reconnect...");
         client.connect({
             onSuccess: onConnect,
+            onFailure: onFailure,
             useSSL: true // Use SSL/TLS
         });
     }
