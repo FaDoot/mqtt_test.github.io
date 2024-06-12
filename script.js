@@ -32,7 +32,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
     function onConnect() {
         console.log("Connected to MQTT broker");
-        // Subscribe to the topic to receive messages
         client.subscribe(topic);
     }
 
