@@ -1,17 +1,16 @@
 document.addEventListener('DOMContentLoaded', (event) => {
     const launchButton = document.getElementById('launch');
     const terminateButton = document.getElementById('terminate');
-    const brokerUrl = "ws://broker.hivemq.com:8000/mqtt"; // Public MQTT broker's WebSocket URL
+    const brokerUrl = "wss://broker.hivemq.com:8884/mqtt"; // Public MQTT broker's Secure WebSocket URL
     const topic = "ros/launch_command"; // Define the MQTT topic
     const clientId = "MQTT_Subscriber_Node"; // Optional: Provide a unique client ID
 
     const client = new Paho.MQTT.Client(brokerUrl, clientId);
-    let reconnectTimeout = 2000;
 
     client.onConnectionLost = function (responseObject) {
         if (responseObject.errorCode !== 0) {
             console.log("onConnectionLost:" + responseObject.errorMessage);
-            setTimeout(reconnect, reconnectTimeout);
+            setTimeout(reconnect, 2000);
         }
     };
 
@@ -21,7 +20,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
     client.connect({
         onSuccess: onConnect,
-        useSSL: false // Optional: Use this if your broker requires SSL/TLS
+        useSSL: true // Use SSL/TLS
     });
 
     function onConnect() {
@@ -34,7 +33,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         console.log("Attempting to reconnect...");
         client.connect({
             onSuccess: onConnect,
-            useSSL: false // Optional: Use this if your broker requires SSL/TLS
+            useSSL: true // Use SSL/TLS
         });
     }
 
