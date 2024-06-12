@@ -1,0 +1,24 @@
+input[type="button"] {
+    font-size: 16px; 
+    padding: 10px 20px;
+    margin: 15px; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    transition: background-color 0.3s, color 0.3s;
+}
+
+#launch {
+    background-color: #4CAF50; 
+    color: white; 
+}
+#terminate {
+    background-color: #af4c4c; 
+    color: white; 
+}
+body {
+    padding: 10px;
+    background-color: #0706062c; 
+    transform: scale(1.5); /* Scale the body by 20% */
+    transform-origin: top left; /* Set the origin to the top-left corner */
+}
