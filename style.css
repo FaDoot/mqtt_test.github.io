@@ -1,24 +1,130 @@
-input[type="button"] {
-    font-size: 16px; 
-    padding: 10px 20px;
-    margin: 15px; 
-    border: none; 
-    border-radius: 5px; 
-    cursor: pointer; 
-    transition: background-color 0.3s, color 0.3s;
+body {
+    background-color: #073440;
+    color: white;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100vh;
+    margin: 0;
+    text-align: left;
+    padding-top: 60px; 
 }
 
-#launch {
-    background-color: #4CAF50; 
-    color: white; 
+.logo-container {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    
 }
-#terminate {
-    background-color: #af4c4c; 
-    color: white; 
+
+
+.title {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 24px;
+    font-weight: bold;
+    /* color: #4CAF50; */
 }
-body {
-    padding: 10px;
-    background-color: #0706062c; 
-    transform: scale(1.5); /* Scale the body by 20% */
-    transform-origin: top left; /* Set the origin to the top-left corner */
+
+.robotSizesContainer{
+    text-align: left;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+input[type="number"],
+input[type="text"] {
+    padding: 5px; /* Reduced padding */
+    border-radius: 10px;
+    border: none;
+    margin-bottom: 5px; /* Reduced margin */
+    width: 20%; /* Reduced width */
+}
+
+button,
+input[type="button"] {
+    padding: 10px 20px;
+    border-radius: 50px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 20%; /* Reduced width */
+}
+
+button:hover,
+input[type="button"]:hover {
+    opacity: 0.8;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.action-button {
+    width: 150px;
+}
+
+.launch-button {
+    background-color: #4CAF50;
+}
+
+.terminate-button {
+    background-color: #f44336;
+}
+
+.toggle-button {
+    background-color: #800080;
+}
+
+.robot_config_group{
+    justify-content: left;
+    width: 30%;
+    
+}
+#save_and_reset {
+    display: flex;
+    justify-content: space-between;
+    width: 200px; /* Adjust the width as needed */
+}
+
+.save-button {
+    background-color: #4CAF50;
+    flex: 1;
+    margin-right: 5px; /* Add margin to separate the buttons */
+}
+
+.reset-button {
+    background-color: #afad4c;
+    flex: 1;
+    margin-left: 5px; /* Add margin to separate the buttons */
+}
+
+#robotSizesContainer {
+    margin-top: 20px;
+}
+
+.robot-size {
+    margin-bottom: 20px;
+}
+
+hr {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 1px solid white;
+}
+#controlForm {
+   
+    margin-top: 100px; 
+    width: 75%;
+    
+    
 }
